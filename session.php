@@ -8,11 +8,11 @@ class Session{
 		if(!isset($_SESSION)){
 			session_start();
 		}
+		if($flagNew){
+			unset($_SESSION[$name]);
+		}
 		if(!isset($_SESSION[$name])){
 			$_SESSION[$name] = [];
-		}
-		if(isset($_SESSION[$name]) && $flagNew){
-			unset($_SESSION[$name]);
 		}
 		$this->name = $name;
 	}
@@ -28,7 +28,6 @@ class Session{
 		return $this->getSession($name);
 	}
 	public function set($name, $value){
-		$name = explode('.', $name);
 		$this->setSection($_SESSION[$this->name], $name, $value);
 	}
 	public function unset($name){
@@ -55,6 +54,7 @@ class Session{
 		}
 	}
 	private function setSection(&$valire, $name, $value){
+		$name = explode('.', $name);
 		$n = $name[count($name) - 1];
 		foreach ($name as $v) {
 			if($v == $n){
