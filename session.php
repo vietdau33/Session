@@ -49,7 +49,7 @@ class Session{
 				return true;
 			}
 			array_splice($name, 0, 1);
-			$this->setSection($valire[$v], $name);
+			$this->unsetSession($valire[$v], $name);
 			break;
 		}
 	}
