@@ -30,6 +30,13 @@ class Session{
 	public function set($name, $value){
 		$this->setSection($_SESSION[$this->name], $name, $value);
 	}
+	public function setByArray(array $aryData = []){
+	    if(empty($aryData)) return true;
+	    foreach ($aryData as $name => $value){
+	        $this->set($name, $value);
+        }
+	    return true;
+    }
 	public function unset($name){
 		return $this->unsetSession($_SESSION[$this->name], $name);
 	}
@@ -77,4 +84,7 @@ class Session{
 		}
 		return $valire;
 	}
+	public function all(){
+	    return $_SESSION[$this->name];
+    }
 }

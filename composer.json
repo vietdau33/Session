@@ -1,0 +1,20 @@
+{
+  "name": "saoxa37/Session",
+  "description": "Session",
+  "type": "library",
+  "homepage" : "https://github.com/vietdau33/Session",
+  "license": "MIT",
+  "version" : "0.0.1",
+  "authors": [
+    {
+      "name": "Minh Viet",
+      "email": "saoxa37@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "files": ["session.php"]
+  }
+}
